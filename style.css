@@ -11,8 +11,28 @@ nav {
 }
 .menu {
   font-size: 20px;
+  margin-right: 15px;
 }
 .menu:hover {
   color: white;
   cursor: pointer;
+}
+.banner-container {
+  width: 1200px;
+  height: 500px;
+  margin: auto;
+  padding: 30px;
+}
+.banner {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(cyan, rgb(33, 137, 137));
+  box-shadow: 4px 4px 8px gray;
+  border-radius: 10px;
+}
+.bn-img {
+  width: 100%;
+  margin-top: -50px;
 }
