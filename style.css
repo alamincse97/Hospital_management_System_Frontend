@@ -1,7 +1,6 @@
 body {
-  /* width: 1200px; */
-  /* border: 1px solid gray; */
   margin: auto;
+  background-color: rgb(241, 234, 234);
 }
 li {
   list-style: none;
@@ -39,8 +38,6 @@ nav {
   margin-top: -50px;
 }
 .service-container {
-  /* width: 1200px;
-  margin: auto; */
   width: 1200px;
   margin: 40px auto 0 auto;
   margin-top: 50px;
@@ -49,4 +46,26 @@ nav {
   font-size: 44px;
   color: aqua;
   text-align: center;
+}
+.doctors-container {
+  margin-top: 50px;
+  padding: 30px;
+}
+.doc-card {
+  width: 300px;
+  height: 330px;
+  box-shadow: 4px 4px 8px gray;
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+}
+.doc-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+#search {
+  padding: 10px;
+  width: 75%;
+  border: none;
 }
