@@ -6,7 +6,7 @@ const loadServices = () => {
 };
 
 const displayService = (services) => {
-    console.log(services);
+    // console.log(services);
     services.forEach((service) => {
         const parent = document.getElementById("service-container");
         const li = document.createElement("li");
@@ -62,5 +62,20 @@ const displyDoctors = (doctors) => {
   });
 };
 
+const loadDesignation = () => {
+  fetch("https://testing-8az5.onrender.com/doctor/designation/")
+  .then((res) => res.json())
+  .then((data) => {
+    data.forEach((item) => {
+      const parent = document.getElementById("drop-deg");
+      const li = document.createElement("li");
+      li.classList.add("dropdown-item");
+      li.innerText = item?.name;
+      parent.appendChild(li);
+    });
+  });
+};
+
 loadServices();
 loadDoctors();
+loadDesignation();
