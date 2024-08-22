@@ -76,6 +76,21 @@ const loadDesignation = () => {
   });
 };
 
+const loadSpecialization = () => {
+  fetch("https://testing-8az5.onrender.com/doctor/specialization/")
+  .then((res) => res.json())
+  .then((data) => {
+    data.forEach((item) => {
+      const parent = document.getElementById("drop-spe");
+      const li = document.createElement("li");
+      li.classList.add("dropdown-item");
+      li.innerText = item?.name;
+      parent.appendChild(li);
+    });
+  });
+};
+
 loadServices();
 loadDoctors();
 loadDesignation();
+loadSpecialization();
