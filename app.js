@@ -1,5 +1,5 @@
-const loadServices = () => {
-    fetch("https://testing-8az5.onrender.com/services/")
+ const loadServices = () => {
+    fetch("https://smart-care-uup2.onrender.com/services/")
     .then((res) => res.json())
     .then((data) => displayService(data))
     .catch((err) => console.log(err));
@@ -33,9 +33,22 @@ const displayService = (services) => {
 };
 
 const loadDoctors = (search) => {
-  fetch(`https://testing-8az5.onrender.com/doctor/list/?search=${search ? search : " "}`)
+  document.getElementById("doctors").innerHTML = "";
+  document.getElementById("spinner").style.display = "block";
+  console.log(search);
+  fetch(`https://smart-care-uup2.onrender.com/doctor/list/?search=${search ? search : " "}`)
   .then((res) => res.json())
-  .then((data) => displyDoctors(data?.results));
+  .then((data) => {
+    if(data.results.length > 0){
+      document.getElementById("spinner").style.display = "none";
+      document.getElementById("nodata").style.display = "none";
+      displyDoctors(data?.results);
+    }else{
+      document.getElementById("doctors").innerHTML = "";
+      document.getElementById("spinner").style.display = "none";
+      document.getElementById("nodata").style.display = "block";
+    }
+  });
 };
 
 const displyDoctors = (doctors) => {
@@ -63,7 +76,7 @@ const displyDoctors = (doctors) => {
 };
 
 const loadDesignation = () => {
-  fetch("https://testing-8az5.onrender.com/doctor/designation/")
+  fetch("https://smart-care-uup2.onrender.com/doctor/designation/")
   .then((res) => res.json())
   .then((data) => {
     data.forEach((item) => {
@@ -77,14 +90,16 @@ const loadDesignation = () => {
 };
 
 const loadSpecialization = () => {
-  fetch("https://testing-8az5.onrender.com/doctor/specialization/")
+  fetch("https://smart-care-uup2.onrender.com/doctor/specialization/")
   .then((res) => res.json())
   .then((data) => {
     data.forEach((item) => {
       const parent = document.getElementById("drop-spe");
       const li = document.createElement("li");
       li.classList.add("dropdown-item");
-      li.innerText = item?.name;
+      li.innerHTML = `
+      <li onclick="loadDoctors('${item.name}')"> ${item.name}</li>
+      `;
       parent.appendChild(li);
     });
   });
@@ -92,7 +107,7 @@ const loadSpecialization = () => {
 
 const handleSearch = () => {
   const value = document.getElementById("search").value;
-  console.log(value);
+  loadDoctors(value);
 };
 
 
