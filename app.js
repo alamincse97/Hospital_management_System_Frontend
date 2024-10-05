@@ -70,7 +70,7 @@ const displyDoctors = (doctors) => {
                 return `<button>${item}</button>`;
               })}
               </p>
-              <button>Details</button>
+              <button> <a target="_blank" href="docDetails.html?doctorId=${doctor.id}">Details</a></button>
     `;
     parent.appendChild(div);
   });
