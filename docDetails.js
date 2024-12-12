@@ -11,7 +11,10 @@ const getparams = async () => {
     }
 };
 
+// console.log(getparams())
+
 const displayDetails = (doctor) => {
+    console.log(doctor)
     const parent = document.getElementById("doc-details");
     const div = document.createElement("div");
     div.classList.add("doc-details-container");
@@ -21,7 +24,7 @@ const displayDetails = (doctor) => {
         <img src=${doctor.image} alt="Doctor Image" />
     </div>
     <div class="doc-info">
-        <h1>${doctor.full_name}</h1>
+        <h1>${doctor?.user}</h1>
         ${doctor.specialization.map((item) => {
             return `<button class="doc-detail-btn">${item}</button>`;
         }).join('')}  <!-- Added .join('') to correctly render the buttons -->

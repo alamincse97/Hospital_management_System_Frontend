@@ -59,7 +59,7 @@ const displyDoctors = (doctors) => {
     div.classList.add("doc-card");
     div.innerHTML = `
     <img class="doc-img" src=${doctor.image} alt="" />
-              <h4>${doctor?.full_name}</h4>
+              <h4>${doctor?.user}</h4>
               <h6>${doctor?.designation[0]}</h6>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -70,7 +70,7 @@ const displyDoctors = (doctors) => {
                 return `<button>${item}</button>`;
               })}
               </p>
-              <button> <a target="_blank" href="docDetails.html?doctorId=${doctor.id}">Details</a></button>
+              <button> <a tÏarget="_blank" href="docDetails.html?doctorId=${doctor.id}">Details</a></button>
     `;
     parent.appendChild(div);
   });
